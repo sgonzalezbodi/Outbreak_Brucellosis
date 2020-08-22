@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+RUN_PATH_I=/home/bioinfomicro/bioinfomicro/Servicios/Brucella/00-reads/
+RUN_PATH_O=/home/bioinfomicro/bioinfomicro/Servicios/Brucella/01-fastqc
+
+cd $RUN_PATH_I
+for file in $(ls $RUN_PATH_I)
+do
+    SAMPLE=`basename $file`
+    SAMPLE_Id=`echo ${SAMPLE} | cut -d_ -f1,2`
+    #echo $SAMPLE_Id
+    mkdir -p $RUN_PATH_O/$SAMPLE_Id
+    fastqc -t 5 ${SAMPLE} -o $RUN_PATH_O/$SAMPLE_Id
+done
+
