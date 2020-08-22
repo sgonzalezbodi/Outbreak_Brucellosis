@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+#To run SPAdes we will use the spades.py command with the --careful option to minimize the number of mismatches in the contigs, -o for the output folder, -1 for the path to the forward reads, -2 for the path to the reverse reads, and -s for the path to the singles reads. If desired, a list of kmers can be specified with the -k flag which will override automatic kmer selection.
+
+cat ../samples_id.txt | xargs -I % echo "mkdir -p %; spades.py -1 ../02-preprocessig/%/%_R1.clean_qc_pair.fastq.gz -2 ../02-preprocessig/%/%_R2.clean_qc_pair.fastq.gz --careful --cov-cutoff auto -o %/">_05_spades_assembly.sh
