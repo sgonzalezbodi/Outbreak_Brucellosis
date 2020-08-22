@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+#Get reference data, for instance from ariba_database.txt
+#ariba databases are CARD, Resfinder, PlasmidFinder and VFDB core.
+
+cat ../ariba_databases.txt | xargs -I % echo "mkdir -p %;ariba getref % %/out.%" > _08_getref.sh
