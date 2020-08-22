@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+kSNP
+#To know the appropriate kmer size, which will be calculated by Kchooser.
+
+MakeFasta in_list_copy VC.fasta
+Kchooser VC.fasta
+
+#run kSNP with core SNP analysis
+
+kSNP3 -in in_list -outdir kSNP -k 19 -core | tee Run3Log
+
+#SNIPPY
+
+#Create inut tab (samples_id	R1_sample	R2_sample)
+
+cat samples_BM.txt | xargs -I % echo "%	/home/bioinfomicro/bioinfomicro/Servicios/Brucella/02-preporcessing/%_R1.fq.gz	/home/bioinfomicro/bioinfomicro/Servicios/Brucella/02-preporcessing/%_R2.fq.gz" >input.tab
+
+snippy-multi input_component1.tab --ref sequence.fasta --cpus 16 > runme.sh
+
+#You can remove all the "weird" characters and replace them with N using the included snippy-clean_full_aln. This is useful when you need to pass it to a tree-building or recombination-removal tool:
+
+snippy-clean_full_aln core.full.aln > clean.full.aln
+run_gubbins.py -p gubbins clean.full.aln
+snp-sites -c gubbins.filtered_polymorphic_sites.fasta > clean.core.aln
+
+#Phylogenetic tree
+
+iqtree -s clean.core.aln -bb 1000 -alrt 1000 --prefix definitivo
