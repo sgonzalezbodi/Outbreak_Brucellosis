@@ -1,0 +1,9 @@
+#Run the ARIBA local assembly pipeline
+#!/usr/bin/env bash
+for database in $(cat ariba_databases.txt)
+do
+   #echo "$database"
+   cat ../../samples_id_Component01.txt | xargs -I % echo "mkdir -p %; ariba run ../prepareref/"$database"/out."$database".prepareref ../../02-preprocessing/%_R1.fq.gz ../../02-preprocessing/%_R2.fq.gz  %/%."$database".out.run">> _09_ariba_run.sh
+   cat ../../samples_id_Component02.txt | xargs -I % echo "mkdir %; ariba run ../prepareref/"$database"/out."$database".prepareref ../../02-preprocessing/Component02/%_R1.fq.gz ../../02-preprocessing/%_R2.fq.gz %/%."$database".out.run">> _09_ariba_run.sh
+
+done
