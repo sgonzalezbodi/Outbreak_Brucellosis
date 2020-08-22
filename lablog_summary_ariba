@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#This summarises the results from one or more runs of ARIBA
+
+
+for database in $(cat ariba_databases.txt)
+do
+   mkdir -p $database
+   tmp_1=`cat ../../samples_id_Component01.txt | xargs -I % echo ../run/%/%.$database.out.run/report.tsv |tr "\n" " "`
+   echo ariba summary $database/out.summary $tmp_1 >>11_ariba_summary_component1.sh
+   tmp_2=`cat ../../samples_id_Component02.txt | xargs -I % echo ../run/%/%.$database.out.run/report.tsv |tr "\n" " "`
+   echo ariba summary $database/out.summary $tmp_2 >>11_ariba_summary_component2.sh
+   
+done
+
+
+
+
+
