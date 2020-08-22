@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+cat ../samples_id.txt | xargs -I % echo "mkdir -p %; fastqc -t 5 ../02-preprocessig/%/%_R*.clean_qc_pair.fastq.gz -o %/" > _04_post_fastqc.sh
+
+
+
