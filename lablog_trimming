@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+cat ../samples_id.txt | xargs -I % echo "mkdir -p %;java -jar /home/bioinfomicro/Programs/Trimmomatic-0.39/trimmomatic-0.39.jar PE /home/bioinfomicro/bioinfomicro/Servicios/Brucella/00-reads/%_R1.fq.gz /home/bioinfomicro/bioinfomicro/Servicios/Brucella/00-reads/%_R2.fq.gz %/%_R1.clean_qc_pair.fastq.gz %/%_R1.clean_qc_unpair.fastq.gz %/%_R2.clean_qc_pair.fastq.gz %/%_R2.clean_qc_unpair.fastq.gz ILLUMINACLIP:/home/bioinfomicro/Programs/Trimmomatic-0.39/adapters/Nextera_XT.fasta:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36" > _03_trimmomatic_component02.sh
+
+
