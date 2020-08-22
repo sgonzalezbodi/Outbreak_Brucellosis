@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#Mis-assembly checking and assembly metric tools
+
+contigs_fastas=`cat ../samples_id.txt | xargs -I % echo ../05-assembly/%/contigs.fasta |tr "\n" " "`
+
+mkdir -p SPAdes
+
+echo python /home/bioinfomicro/Programs/quast-5.0.2/quast.py -o SPAdes/ -L "$contigs_fastas" >> _06_spades_qc.sh
+
+
+
+
+
