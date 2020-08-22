@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#Bacterial species ID
+
+#Run kraken
+cat /home/bioinfomicro/bioinfomicro/Servicios/Brucella/00-reads/Component02/samples_id_Component02.txt |xargs -I % echo "mkdir -p component2; mkdir -p component2/%; kraken2 --use-names --threads 4 --db minikraken2_v2_8GB_201904/minikraken2_v2_8GB_201904_UPDATE/ --report component2/%/%.report --gzip-compressed --paired ../02-preprocessig/%/%_R1.clean_qc_pair.fastq.gz ../02-preprocessig/%/%_R2.clean_qc_pair.fastq.gz > component2/%/%.kraken "> kraken_componente2.sh
+
+cat /home/bioinfomicro/bioinfomicro/Servicios/Brucella/00-reads/Component01/FASTQ/samples_id_Component01.txt |xargs -I % echo "mkdir -p component1; mkdir -p component1/%; kraken2 --use-names --threads 4 --db minikraken2_v2_8GB_201904/minikraken2_v2_8GB_201904_UPDATE/ --report component1/%/%.report --gzip-compressed --paired ../02-preprocessig/%/%_R1.clean_qc_pair.fastq.gz ../02-preprocessig/%/%_R2.clean_qc_pair.fastq.gz > component1/%/%.kraken "> kraken_componente1.sh
+
+#Run Bracken
+cat /home/bioinfomicro/bioinfomicro/Servicios/Brucella/00-reads/Component01/FASTQ/samples_id_Component01.txt |xargs -I % echo "bracken -d minikraken2_v2_8GB_201904/minikraken2_v2_8GB_201904_UPDATE/ -i component1/%/%.report -l S -o component1/%/%.brachen" > brachen_componente1.sh
+
+cat /home/bioinfomicro/bioinfomicro/Servicios/Brucella/00-reads/Component02/samples_id_Component02.txt |xargs -I % echo "bracken -d minikraken2_v2_8GB_201904/minikraken2_v2_8GB_201904_UPDATE/ -i component2/%/%.report -l S -o component2/%/%.brachen " > brachen_componente2.sh
+
+#Sort kraken report
+cat /home/bioinfomicro/bioinfomicro/Servicios/Brucella/00-reads/Component01/FASTQ/samples_id_Component01.txt |xargs -I % echo "head -n 1 component1/%/%.brachen > component1/%/%.brachen.sort | tail -n +2 component1/%/%.brachen | sort -t$'\t' -k7 -nr >> component1/%/%.brachen.sort" > brachen_componente1_sort.sh
+
+cat /home/bioinfomicro/bioinfomicro/Servicios/Brucella/00-reads/Component02/samples_id_Component02.txt |xargs -I % echo "head -n 1 component2/%/%.brachen > component2/%/%.brachen.sort | tail -n +2 component2/%/%.brachen | sort -t$'\t' -k7 -nr >> component2/%/%.brachen.sort" > brachen_componente1_sort.sh
+
+#Run Krona
+cat ../samples_id_Component02.txt | xargs -I % echo "../../kraken.krona.html.files/KronaTools-2.7/scripts/ImportTaxonomy.pl -m 3 -t 5 %.report -o %_kraken.html" > krona_component2.sh
+
