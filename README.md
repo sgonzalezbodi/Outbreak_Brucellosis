@@ -37,13 +37,13 @@ In order to use these scripts, you can download them:
 
 ## DESCRIPTION & USAGE
 
-**Steps and  linux scripts for the batch analysis of whole genome sequences and metagenomics datasets.
+### Steps and  linux scripts for the batch analysis of whole genome sequences and metagenomics datasets.
 
 1. RAW READS: Storage of the raw sequences and create the samples_id.txt file ([samples.sh](https://github.com/sgonzalezbodi/Outbreak_Brucellosis/blob/master/samples.sh))
 
 2. QC_PRE_PROCESSING: Quality analysis of the raw reds (FastQC program) ([lablog_pre_fastqc](https://github.com/sgonzalezbodi/Outbreak_Brucellosis/blob/master/lablog_pre_fastqc))
 
-3. TRIMMING: ([lablog_trimming](https://github.com/sgonzalezbodi/Outbreak_Brucellosis/blob/master/lablog_trimming))
+3. TRIMMING: Trimmomatic performs a variety of useful quality control tasks for Illumina paired-end as adapter clipping, removes bases regardless of their quality, removes reads that fall below the specified minimum length etc. ([lablog_trimming](https://github.com/sgonzalezbodi/Outbreak_Brucellosis/blob/master/lablog_trimming))
 ))
 4. QC_POST_PROCESSING:  Revaluated the quality after applying the trimmed ([lablog_post_fastqc](https://github.com/sgonzalezbodi/Outbreak_Brucellosis/blob/master/lablog_post_fastqc)).
 
