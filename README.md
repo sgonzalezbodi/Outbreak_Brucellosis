@@ -37,32 +37,22 @@ In order to use these scripts, you can download them:
 
 ## DESCRIPTION & USAGE
 
-**Steps and scripts for the analysis of whole genome sequences and metagenomics datasets.
+**Steps and  linux scripts for the batch analysis of whole genome sequences and metagenomics datasets.
 
-1. RAW READS: Storage of the raw sequences and create the samples_id.txt file
+1. RAW READS: Storage of the raw sequences and create the samples_id.txt file ([samples.sh](https://github.com/sgonzalezbodi/Outbreak_Brucellosis/blob/master/samples.sh))
 
-2. QC_PRE_PROCESSING: Quality analysis of the raw reds (FastQC program)
+2. QC_PRE_PROCESSING: Quality analysis of the raw reds (FastQC program) ([lablog_pre_fastqc](https://github.com/sgonzalezbodi/Outbreak_Brucellosis/blob/master/lablog_pre_fastqc))
 
-3. TRIMMING: 
+3. TRIMMING: ([lablog_trimming](https://github.com/sgonzalezbodi/Outbreak_Brucellosis/blob/master/lablog_trimming))
+))
+4. QC_POST_PROCESSING:  Revaluated the quality after applying the trimmed ([lablog_post_fastqc](https://github.com/sgonzalezbodi/Outbreak_Brucellosis/blob/master/lablog_post_fastqc)).
 
-4. QC_POST_PROCESSING:  Revaluated the quality after applying the trimmed.
+5. ID specie: Taxonomic analysis was carried out for the identification of bacterial species and quality control with the Kraken tool ([lablog_kraken](https://github.com/sgonzalezbodi/Outbreak_Brucellosis/blob/master/lablog_kraken)).
 
-5. ID specie: Taxonomic analysis was carried out for the identification of bacterial species and quality control with the Kraken tool.
+6. ASSEMBLY. The complete genomes of *Brucella spp.* were assembled with the SPAdes tool ([lablog_spades](https://github.com/sgonzalezbodi/Outbreak_Brucellosis/blob/master/lablog_spades)).
 
-The complete genomes of *Brucella spp.* were assembled with the SPAdes tool and QUAST was used as a quality assessment tool for evaluating the novo assemblies.
+6. QC-ASSEMBLY: QUAST was used as a quality assessment tool for evaluating the novo assemblies ([lablog_quast](https://github.com/sgonzalezbodi/Outbreak_Brucellosis/blob/master/lablog_quast)).
 
-The phylogenetic analysis was performed to identify core single-nucleotide polymorphisms with kSNP and Snippy programs.Next, RAxML and IQ-Tree were used to reconstruct a maximum-likelihood tree based on distance matrix.
+7. ANALYSIS PHILOGENETIC: The phylogenetic analysis was performed to identify core single-nucleotide polymorphisms with kSNP and Snippy programs.Next, RAxML and IQ-Tree were used to reconstruct a maximum-likelihood tree based on distance matrix ([lablog_kSNP_snippy](https://github.com/sgonzalezbodi/Outbreak_Brucellosis/blob/master/lablog_kSNP_snippy)).
 
-The resistome, virulome and plasmidome of outbreak strains from single genomes and metagenomic data were identified using ARIBA.
-
-* [parse_fastqc_pre_post.py](https://github.com/BU-ISCIII/bacterial_qc/blob/master/doc/parse_fastqc_pre_post.md)
-* [parse_assembly_quast.py](https://github.com/BU-ISCIII/bacterial_qc/blob/master/doc/parse_assembly_quast.md)
-* [parse_Kraken.py](https://github.com/BU-ISCIII/bacterial_qc/blob/master/doc/parse_Kraken.md)
-* [parse_ariba.py](https://github.com/BU-ISCIII/bacterial_qc/blob/master/doc/parse_ariba.md)
-* [mlst_report.py](https://github.com/BU-ISCIII/bacterial_qc/blob/master/doc/mlst_report.md)
-
-
-
-
-
-
+8. Characterization of the resistome, virulome, plasmidome mlst typing of outbreak strains from single genomes and metagenomic data were identified using ARIBA ([lablog_getref_ariba](https://github.com/sgonzalezbodi/Outbreak_Brucellosis/blob/master/lablog_getref_ariba)), ([lablog_run_ariba](https://github.com/sgonzalezbodi/Outbreak_Brucellosis/blob/master/lablog_run_ariba)) and ([lablog_summary_ariba](https://github.com/sgonzalezbodi/Outbreak_Brucellosis/blob/master/lablog_summary_ariba)).
