@@ -1,16 +1,21 @@
-# Outbreak_Brucellosis
 <img src="images/BU_ISCIII_logo.png" alt="logo" width="300" align="right"/>
 
-<p align="center">
-  <img width="800" height="800" src="https://github.com/sgonzalezbodi/Outbreak_Brucellosis/tree/master/images/Schema_Brucellosis_Ourbreak.png">
-</p>
+# **Outbreak_Brucellosis**
 
+<p align="center">
+  <img width="800" height="800" src="https://github.com/sgonzalezbodi/Outbreak_Brucellosis/blob/master/images/Schema_Brucellosis_Ourbreak.png">
+</p>
 
 ## INTRODUCTION
 
-[Scripts](https://github.com/BU-ISCIII/bacterial_qc/tree/develop) for the development of  quality control (QC) tools for the different stages of [Outbreak Brucellosis](https://github.com/sgonzalezbodi/Outbreak_Brucellosis):
-https://github.com/BU-ISCIII/bacterial_qc/edit/develop/README.md
-Tools for parsing different output files obtained in the Preprocesing and Postprocessing (FastQC), Species identification (Kraken-Bracken), Quality of Assembly (Spades) and Charaterization (Ariba) steps. 
+High-throughput sequencing (HTS) techniques represent a scientific and medical revolution in many fields of the life sciences. One of the most relevant applications is in the area of Food Safety and Public Health, where the prevention, control, management and monitoring of foodborne pathogens are considered crucial aspects.
+
+The main objective of this work has been to demonstrate that the implementation of HTS techniques in the resolution of biological alert produced by an outbreak of Brucellosis can be used as an accurate, reliable and highly discriminative subtyping method for epidemiological characterization and outbreak strain investigation. 
+
+[Scripts](https://github.com/BU-ISCIII/bacterial_qc) for the developmentthe analysis of a total of 260 single genomes of Brucella spp. and 14 metagenomic datasets as whole community sequence data has been analyzed. Initially, the quality of the raw reds was evaluated using the FastQC program and reads were revaluated after trimmed with trimmomatic program. Next, the taxonomic analysis was carried out for the identification of bacterial species and quality control with the Kraken tool. The complete genomes of Brucella spp. were assembled with the SPAdes tool and QUAST was used as a quality assessment tool for evaluating the novo assemblies. Then, the phylogenetic analysis was performed to identify core single-nucleotide polymorphisms with kSNP and Snippy programs. Next, RAxML and IQ-Tree were used to reconstruct a maximum-likelihood tree based on distance matrix. Finally, the resistome, virulome and plasmidome of outbreak strains from single genomes and metagenomic data were identified using ARIBA.
+
+
+Tools for parsing different output files obtained in the Preprocesing and Postprocessing (FastQC), Species identification (Kraken-Bracken), Quality of Assembly (Spades) and Charaterization (Ariba) steps and for the development of quality control [Scripts_QC](https://github.com/BU-ISCIII/bacterial_qc/tree/develop) . 
 
 ## REQUIRED DEPENDENCIES
 
